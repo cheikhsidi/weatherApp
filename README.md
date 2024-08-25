@@ -35,7 +35,7 @@ go_weather_app/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/go_weather_app.git
+git clone https://github.com/cheikhsidi/weatherApp
 cd go_weather_app
 ```
 
