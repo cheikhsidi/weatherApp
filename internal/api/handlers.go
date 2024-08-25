@@ -9,10 +9,10 @@ import (
 
 func RegisterRoutes(app *fiber.App) {
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Welcome to the Weather App! Use the /forecast endpoint to get the forecast.")
+		return c.SendString("Welcome to the Weather App! Use the /forecast endpoint to get the weather forecast.")
 	})
 
-	// Define the GET /forecast endpoint (note the correct spelling)
+	// Define the GET /forecast endpoint
 	app.Get("/forecast", handleForecast)
 }
 
@@ -32,7 +32,7 @@ func handleForecast(c *fiber.Ctx) error {
 	}
 
 	// Get the forecast data using the provided coordinates
-	data, err := forecast.GetForecast(lat, lon)
+	data, err := forecast.GetForecastFunc(lat, lon)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching forecast")
 	}

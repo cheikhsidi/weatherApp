@@ -82,7 +82,7 @@ http://localhost:3001/forecast?latitude=<latitude>&longitude=<longitude>
 The application will return a string response containing a summary of the weather forecast, including temperature and a short forecast description.
 API Endpoints
 
-    GET /: Returns "Hello, World!" to verify the server is running.
+    GET /: Returns "Welcome to the Weather App! Use the /forecast endpoint to get the weather forecast." to verify the server is running.
     GET /forecast: Accepts latitude and longitude as query parameters and returns the weather forecast.
 
 ## Testing

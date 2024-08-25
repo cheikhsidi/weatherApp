@@ -2,6 +2,7 @@ package forecast
 
 import (
 	"encoding/json"
+	"fmt"
 	"go_weather_app/internal/models"
 	"net/http"
 	"net/http/httptest"
@@ -19,18 +20,26 @@ func TestGetForecast(t *testing.T) {
 	forecastResponse := models.ForecastResponse{
 		Properties: models.ForecastProperties{
 			Periods: []models.Period{
+				{Temperature: 80, ShortForecast: "Sunny"},
 				{Temperature: 75, ShortForecast: "Sunny"},
 			},
 		},
 	}
 
+	// Mock server for the /points API
 	pointsServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(pointsResponse)
 	}))
 	defer pointsServer.Close()
 
+	// Mock server for the forecast URL
 	forecastServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		json.NewEncoder(w).Encode(forecastResponse)
+		// Check that the URL being requested is the correct one
+		if r.URL.String() == "/forecast" {
+			json.NewEncoder(w).Encode(forecastResponse)
+		} else {
+			http.Error(w, "not found", http.StatusNotFound)
+		}
 	}))
 	defer forecastServer.Close()
 
@@ -39,10 +48,15 @@ func TestGetForecast(t *testing.T) {
 	defer func() { baseURL = originalBaseURL }()
 	baseURL = pointsServer.URL + "/"
 
+	fmt.Println("Mock baseURL set to:", baseURL)
+
+	// Overwrite the forecast URL in the mocked points response
+	forecastResponseURL := forecastServer.URL + "/forecast"
+	pointsResponse.Properties.Forecast = forecastResponseURL
+
 	// Test the GetForecast function
 	forecast, err := GetForecast(39.74, -104.99)
 	if err != nil {
-		// Log the error message and fail the test
 		t.Fatalf("Expected no error, got %v", err)
 	}
 
