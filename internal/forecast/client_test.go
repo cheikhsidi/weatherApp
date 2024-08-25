@@ -60,7 +60,7 @@ func TestGetForecast(t *testing.T) {
 		t.Fatalf("Expected no error, got %v", err)
 	}
 
-	expected := "It's hot outside! Sunny"
+	expected := "The temperature is hot! Sunny"
 	if forecast != expected {
 		t.Errorf("Expected %s, got %s", expected, forecast)
 	}

@@ -7,9 +7,9 @@ func TestCheckTemperature(t *testing.T) {
 		temp     int
 		expected string
 	}{
-		{85, "It's hot outside!"},
-		{70, "It's moderate outside!"},
-		{55, "It's cold outside!"},
+		{85, "The temperature is hot!"},
+		{70, "The temperature is moderate!"},
+		{55, "The temperature is cold!"},
 	}
 
 	for _, test := range tests {

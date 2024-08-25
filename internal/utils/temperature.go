@@ -2,10 +2,10 @@ package utils
 
 func CheckTemperature(temp int) string {
 	if temp > 80 {
-		return "It's hot outside!"
+		return "The temperature is hot!"
 	} else if temp < 60 {
-		return "It's cold outside!"
+		return "The temperature is cold!"
 	} else {
-		return "It's moderate outside!"
+		return "The temperature is moderate!"
 	}
 }

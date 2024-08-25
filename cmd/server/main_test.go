@@ -16,8 +16,8 @@ func TestMain(t *testing.T) {
 
 	// Handle different possible outcomes
 	expectedMessages := []string{
-		"It's hot outside! Sunny",
-		"It's hot outside! Partly Sunny then Slight Chance Showers And Thunderstorms",
+		"The temperature is hot! Sunny",
+		"The temperature is hot! Partly Sunny then Slight Chance Showers And Thunderstorms",
 	}
 
 	found := false
