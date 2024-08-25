@@ -6,7 +6,7 @@ This is a Go-based web application that provides weather forecasts based on lati
 
 Before running the application, make sure you have the following installed:
 
-- [Go](https://golang.org/dl/) (version 1.20 or higher)
+- [Go](https://golang.org/dl/) (version 1.23 or higher)
 - [Docker](https://www.docker.com/get-started) (if you want to run the app in a container)
 
 ## Project Structure
