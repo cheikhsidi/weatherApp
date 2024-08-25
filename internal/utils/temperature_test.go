@@ -7,14 +7,14 @@ func TestCheckTemperature(t *testing.T) {
 		temp     int
 		expected string
 	}{
-		{75, "It's hot outside!"},
-		{65, "It's cold outside!"},
+		{85, "It's hot outside!"},
+		{70, "It's moderate outside!"},
+		{55, "It's cold outside!"},
 	}
 
 	for _, test := range tests {
-		result := CheckTemperature(test.temp)
-		if result != test.expected {
-			t.Errorf("CheckTemperature(%d) = %s; expected %s", test.temp, result, test.expected)
+		if result := CheckTemperature(test.temp); result != test.expected {
+			t.Errorf("CheckTemperature(%d) = %s, expected %s", test.temp, result, test.expected)
 		}
 	}
 }

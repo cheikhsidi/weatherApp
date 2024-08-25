@@ -20,8 +20,8 @@ func TestGetForecast(t *testing.T) {
 	forecastResponse := models.ForecastResponse{
 		Properties: models.ForecastProperties{
 			Periods: []models.Period{
-				{Temperature: 80, ShortForecast: "Sunny"},
-				{Temperature: 75, ShortForecast: "Sunny"},
+				{Temperature: 90, ShortForecast: "Sunny"},
+				{Temperature: 85, ShortForecast: "Sunny"},
 			},
 		},
 	}
