@@ -1,6 +1,6 @@
 # Go Weather App
 
-This is a Go-based web application that provides weather forecasts based on latitude and longitude. The application is built using the Fiber web framework and fetches weather data from an external API.
+This is a Go-based web application that provides weather forecasts based on latitude and longitude. The application is built using the Fiber web framework and fetches weather data from an external API [weather.gov](https://www.weather.gov/documentation/services-web-api#/).
 
 ## Prerequisites
 
